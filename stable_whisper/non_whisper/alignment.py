@@ -279,7 +279,7 @@ class Aligner:
         with tqdm(
                 total=self._initial_duration,
                 unit='sec',
-                disable=self.options.progress.verbose is not False,
+                disable=True,
                 desc='Align'
         ) as tqdm_pbar:
             result: List[BasicWordTiming] = []
