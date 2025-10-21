@@ -323,6 +323,7 @@ class Aligner:
 
         if self._temp_data.word is not None:
             result.append(self._temp_data.word)
+        """
         if not result:
             warnings.warn('Failed to align text.', stacklevel=2)
         if self.failure_count > self.max_fail:
@@ -338,6 +339,7 @@ class Aligner:
                 f'{last_ts_str}.',
                 stacklevel=2
             )
+        """
 
         if self._all_word_tokens and not self.remove_instant_words:
             final_total_duration = self.audio_loader.get_duration(3)
@@ -381,8 +383,10 @@ class Aligner:
         if not self.original_split:
             final_result.regroup(self.options.post.regroup)
 
+        """
         if fail_segs := len([None for s in final_result.segments if s.end - s.start <= 0]):
             warnings.warn(f'{fail_segs}/{len(final_result.segments)} segments failed to align.', stacklevel=2)
+        """
 
         return final_result
 
